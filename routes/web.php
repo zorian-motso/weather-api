@@ -14,6 +14,10 @@ $api->version('v1', function ($api) {
             return ['api_version' => 1];
         });
 
+        $api->get('/services', 'App\API\v1\Controllers\ServicesController@get');
+
+        $api->get('/services/{service}/{city}', 'App\API\v1\Controllers\WeatherController@getByCity');
+
     });
 
     $api->group(['prefix' => 'v2'], function ($api) {

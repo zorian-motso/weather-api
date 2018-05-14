@@ -23,6 +23,8 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
+$app->configure('weather-services');
+
 // $app->withFacades();
 
 // $app->withEloquent();
@@ -94,9 +96,7 @@ $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 |
 */
 
-$app->router->group([
-    'namespace' => 'App\Http\Controllers',
-], function ($router) {
+$app->router->group([], function ($router) {
     require __DIR__.'/../routes/web.php';
 });
 
